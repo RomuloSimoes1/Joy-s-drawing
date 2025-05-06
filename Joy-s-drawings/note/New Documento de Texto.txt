@@ -1,0 +1,83 @@
+Conforme a ordem do chatGPT
+
+1. Defina o objetivo do site
+  - Sistema para upload e exposição de desenhos
+  - Vai ter login de usuário, Comentários, Curtidas
+
+2. Estruture o projeto
+  /meusite-desenho/
+├── index.html
+├── style.css
+├── script.js
+├── /img/
+├── /php/
+│   ├── conectar.php
+│   ├── salvar_desenho.php
+├── /uploads/
+├── /mysql/
+│   └── database.sql
+
+3. Crie o banco de dados (MySQL)
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    email VARCHAR(100),
+    senha VARCHAR(255)
+);
+
+CREATE TABLE desenhos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    titulo VARCHAR(100),
+    imagem VARCHAR(255),
+    data_upload DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+4. Desenvolva o front-end (HTML/CSS/JS)
+Crie as páginas:
+
+Home (lista de desenhos)
+
+Login / Registro
+
+Página de upload
+
+Página de perfil
+
+Use JavaScript para interações (ex: galeria, pop-ups, filtros)
+
+5. Desenvolva o back-end (PHP + MySQL)
+Autenticação de usuário (login, sessão, segurança)
+
+Upload de arquivos (move_uploaded_file())
+
+Exibição de imagens puxando do banco
+
+CRUD para desenhos
+
+6. Adicione segurança
+Proteja contra SQL Injection com mysqli_prepare()
+
+Valide e sanitize inputs
+
+Restrinja tipos de arquivos no upload (só imagens)
+
+7. Faça responsivo (media queries)
+css
+Copy
+Edit
+@media (max-width: 768px) {
+    /* layout mobile */
+}
+@media (min-width: 769px) {
+    /* layout desktop */
+}
+
+8. Hospede seu site
+Crie uma conta em um host (ex: Hostinger, InfinityFree, 000webhost)
+
+Suba os arquivos via FTP ou painel
+
+Crie e importe seu banco MySQL
